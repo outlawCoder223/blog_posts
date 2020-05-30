@@ -61,7 +61,7 @@ To insert and delete elements at the beginning of an array, these methods come i
 
 - [unshift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
 
-  > "The `unshift()` method adds one or more elements to the beginning of an array and returns the new lengthof the array."
+  > "The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array."
   >
   > -MDN
 
@@ -73,9 +73,9 @@ What if we want to insert or delete from the middle of the array? For this JavaS
   >
   > -MDN
 
-Because arrays by nature are indexed, some of these methods are better than others. If we need simply need to add an element to the array and it doesn't need to be at the start, it would be a good idea to use the `push()` method. Why? By deleting or adding to the end of the array, the indices of the other elements are not effected. However, when we try to add or remove something from anywhere else it means that all the elements that come after now have to be reindexed to match the changes. `shift()` and `unshift()` are the biggest culprit for this because **all** the elements of the array now have to be changed. In a small dataset, this is neglible. But as our array grows in size, so does the time it takes to do all this work to change the indices of the array. If we are talking Big O notation, these methods (besides `push()` and `pop()`) will have O(n) performance.
+Because arrays by nature are indexed, some of these methods are better than others. If we need simply need to add an element to the array and it doesn't need to be at the start, it would be a good idea to use the `push()` method. Why? By deleting or adding to the end of the array, the indices of the other elements are not effected. However, when we try to add or remove something from anywhere else it means that all the elements that come after now have to be reindexed to match the changes. `shift()` and `unshift()` are the biggest culprit for this because **all** the elements of the array now have to be changed. In a small dataset, this is negligible. But as our array grows in size, so does the time it takes to do all this work to change the indices of the array. If we are talking Big O notation, these methods (besides `push()` and `pop()`) will have O(n) performance.
 
-Contrast this with a linked list which has O(1) or constant time insertion and deletion. Why is this? As we will see with the code, when inserting or deleting a node in a linked list, we simply have to get to that node, and then shuffle some pointers around. If you want to see this in action [visualgo](https://visualgo.net/en/list) has a great visualization tool that can help you see exactly how this works. Don't worry, we will see the code later.
+Contrast this with a linked list which has O(1) or constant time insertion and deletion. Why is this? As we will see with the code, when inserting or deleting a node in a linked list, we simply have to get to that node, and then shuffle some pointers around. If you want to see this in action [Visualgo](https://visualgo.net/en/list) has a great visualization tool that can help you see exactly how this works. Don't worry, we will see the code later.
 
 ## Lets Make a Singly Linked List!
 
@@ -168,7 +168,7 @@ class SinglyLinkedList {
 }
 ```
 
-The bulk of the logic for `pop()` comes after our first two `if` statements. This can be hard to see at first, but basically we have to keep track of two nodes at all times. We keep track of the current node we are at and the previous node. Our `while` loop takes us to the end of the list. Once we make it to the end we simply set the tail of the list to be our previoius node (2nd from the end in this case) and set the pointer of that node to be null. When we set the pointer to `null` we sever the link to our last node thereby deleting it from the list.
+The bulk of the logic for `pop()` comes after our first two `if` statements. This can be hard to see at first, but basically we have to keep track of two nodes at all times. We keep track of the current node we are at and the previous node. Our `while` loop takes us to the end of the list. Once we make it to the end we simply set the tail of the list to be our previous node (2nd from the end in this case) and set the pointer of that node to be null. When we set the pointer to `null` we sever the link to our last node thereby deleting it from the list.
 
 Next on our 'list' of methods (see what I did there?) is `shift()` and `unshift()`
 
@@ -328,7 +328,7 @@ list.remove(2); // this will return our second node object
 
 ## Conclusion
 
-Hopefully this has been a good introduction to linked lists and some of the basic implementations of them in JavaScript! As we can see linked lists are a great data structure to be familiar with. They are especially great for inserting and deleting elements. The complete code for this article can be found at [here](https://github.com/rancewcampbell/blog_posts/tree/master/02_resources) Thanks for reading and see you next time!
+Hopefully this has been a good introduction to linked lists and some of the basic implementations of them in JavaScript! As we can see linked lists are a great data structure to be familiar with. They are especially great for inserting and deleting elements. The complete code for this article can be found at [here](https://github.com/rancewcampbell/blog_posts/tree/master/02_resources). Thanks for reading and see you next time!
 
 ## Resources:
 
