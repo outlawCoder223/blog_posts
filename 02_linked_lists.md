@@ -8,7 +8,7 @@ How do we store data in JavaScript? _Arrays_ and _objects_ a couple examples of 
 
 As we see, linked lists are simple by nature, as most basic data structures are. All we need is some data (could be of any core JavaScript data type) and a pointer that points to the next node. Here is a simple diagram to help visualize this concept:
 
-[Linked List Diagram](https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist.png)
+![Linked List Diagram]()
 
 Here I would like to point out that we are specifically talking about a _singly_ linked list. Not to be confused with its close cousin, a singly linked list contains one pointer to the next node. Doubly linked lists have a pointer to the next node as well as the previous node, but this is beyond our scope today. What exactly does this mean? It means we can only move from the _head_ of the list to the _tail_. We will discover what this means for us as far as code goes in a bit.
 
@@ -237,7 +237,11 @@ Unfortunately we are back to looping through all our nodes until we match the in
 
 ### Insert and Delete
 
-On arrays we have `splice()` which can delete and insert items! This is pretty complex so instead lets break ours into two separate methods. First lets insert into our list! We will make use of the methods we defined earlier to help us implement inserting and deleting. Our `insert()` method will take and index and the data we want to store at that index. It could look something like this:
+On arrays we have `splice()` which can delete and insert items! This is pretty complex so instead lets break ours into two separate methods. First lets insert into our list! Lets take a look at this diagram to help us visualize what has to happen here:
+
+![insert into linked list diagram]()
+
+In order to insert into our list we need to set the pointer of the previous node to our new node and then have our new node point to node that used to live where we are inserting. We will make use of the methods we defined earlier to help us implement inserting and deleting. Our `insert()` method will take and index and the data we want to store at that index. It could look something like this:
 
 ```js
 class SinglyLinkedList {
@@ -275,7 +279,11 @@ Our default action here has some interesting logic. Lets break it down:
 
 Pretty cool right?
 
-What about deleting? Let's try it. All we will need is an index to delete at!
+What about deleting? Let's try it. All we will need is an index to delete at! Let's take a look at another diagram first:
+
+![removing from linked list]()
+
+This is even easier than inserting. All we have to do is take our previous node and point it to the node that comes after the element we are removing.
 
 ```js
 class SinglyLinkedList {
