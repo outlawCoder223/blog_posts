@@ -2,7 +2,7 @@
 
 ## What is a Linked List?
 
-How do we store data in JavaScript? _Arrays_ and _objects_ a couple examples of the core data structures we commonly use. Then we have things like the DOM which is stored in a _tree_ data structure, or the call stack which, as the name implies, is a _stack_. Well today I would like to introduce the _linked list_ data structure. What exactly is a linked list? Check out this definition on Wikipedia:
+How do we store data in JavaScript? _Arrays_ and _objects_ are a couple examples of the core data structures we commonly use. Then we have things like the DOM which is stored in a _tree_ data structure, or the call stack which, as the name implies, is a _stack_. Well today I would like to introduce the _linked list_ data structure. What exactly is a linked list? Check out this definition on Wikipedia:
 
 > In computer science, a linked list is a linear collection of data elements, whos order is not given by their physical placement in memory. Instead, each element points to the next. It is a data structure consisting of a collection of nodes which together represent a sequence. In its most basic form, each node contains: data, and a reference (in other words, a _link_ to the next node in the sequence).
 
@@ -10,7 +10,7 @@ As we see, linked lists are simple by nature, as most basic data structures are.
 
 ![Linked List Diagram](https://github.com/rancewcampbell/blog_posts/blob/master/02_resources/images/singly_linked_list_diagram.png)
 
-Here I would like to point out that we are specifically talking about a _singly_ linked list. Not to be confused with its close cousin, a singly linked list contains one pointer to the next node. Doubly linked lists have a pointer to the next node as well as the previous node, but this is beyond our scope today. What exactly does this mean? It means we can only move from the _head_ of the list to the _tail_. We will discover what this means for us as far as code goes in a bit.
+Here I would like to point out that we are specifically talking about a _singly_ linked list. Not to be confused with its close cousin, the doubly linked list, a singly linked list contains one pointer to the next node. Doubly linked lists have a pointer to the next node as well as the previous node. This is beyond our scope today. This means that a in a singly linked list we can only move from the _head_ of the list to the _tail_. We will discover what this means for us as far as code goes in a bit.
 
 ## What's wrong with arrays?
 
@@ -20,7 +20,7 @@ As cool as linked lists are, they aren't supposed to take over from arrays. In f
 const toys = ['Woody', 'Buzz Lightyear', 'Mr. Potato Head', 'Jesse'];
 ```
 
-If we have an array like the example above and needed to grab Buzz Lightyear, how could we do it? Well if we know what the index that Buzz Lightyear was stored we could use `toys[1]`. This type of lookup is **fast**. What other method could we use to find Buzz? Well if we weren't sure where he was being stored we might have to implement something like this:
+If we have an array like the example above and needed to grab Buzz Lightyear, how could we do it? If we know what index that Buzz Lightyear is stored at, we could use `toys[1]`. This type of lookup is **fast**. What other method could we use to find Buzz? Well if we weren't sure where he was being stored we might have to implement something like this:
 
 ```js
 const findToy = (toys, toyName) => {
@@ -31,11 +31,11 @@ const findToy = (toys, toyName) => {
 };
 ```
 
-This method is much slower that being able to access by the index, not to mention it requires a lot more code! Well, since linked lists don't have an index, we are going to have to rely on similar code to look items up like this. Another property of arrays that make them an excellent data structure is that when we compare them to linked lists, they generally take up less memory. Now this might not be as much of a concern for us as JavaScript developers, but it is important to note that linked lists need to store a reference to the next element which isn't necessary for elements in an array.
+This method is much slower than being able to access by the index, not to mention it requires a lot more code! Well, since linked lists don't have an index, we are going to have to rely on similar code to look items up like this. Another property of arrays that make them an excellent data structure is that when we compare them to linked lists, they generally take up less memory. Now this might not be as much of a concern for us as JavaScript developers, but it is important to note that linked lists need to store a reference to the next element which isn't necessary for elements in an array.
 
 ## Why linked lists then?
 
-There is one key area that linked lists reign supreme: insertions and deletions. Lets look at some common insertion and deletion methods that we use all the time with arrays:
+There is one area where linked lists reign supreme: insertions and deletions. Lets look at some common insertion and deletion methods that we use all the time with arrays:
 
 To insert and delete elements at the end of an array we would probably use these methods:
 
@@ -104,7 +104,7 @@ class SinglyLinkedList {
 }
 ```
 
-Why do I initialize the head and tail to be `null`? That's because if our list is empty, we don't actually have a head or tail.
+Why do I initialize the head and tail to be `null`? Well if our list is empty, we don't actually have a head or tail.
 
 Okay cool, now that we have our node class and our list class, lets write some methods to help us manipulate our list. I will be focusing on the basic operations we use on arrays and how we can implement them with our linked list.
 
