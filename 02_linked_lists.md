@@ -328,7 +328,7 @@ list.remove(2); // this will return our second node object
 
 ## Conclusion
 
-Hopefully this has been a good introduction to linked lists and some of the basic implementations of them in JavaScript! As we can see linked lists are a great data structure to be familiar with. They are especially great for inserting and deleting elements. The complete code for this article can be found at [this gist](https://gist.github.com/rancewcampbell/3ac11705f6832827de87e7ff8115020e) Thanks for reading and see you next time!
+Hopefully this has been a good introduction to linked lists and some of the basic implementations of them in JavaScript! As we can see linked lists are a great data structure to be familiar with. They are especially great for inserting and deleting elements. The complete code for this article can be found at [here](https://github.com/rancewcampbell/blog_posts/tree/master/02_resources) Thanks for reading and see you next time!
 
 ## Resources:
 
