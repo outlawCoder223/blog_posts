@@ -75,7 +75,9 @@ What if we want to insert or delete from the middle of the array? For this JavaS
 
 Because arrays by nature are indexed, some of these methods are better than others. If we need simply need to add an element to the array and it doesn't need to be at the start, it would be a good idea to use the `push()` method. Why? By deleting or adding to the end of the array, the indices of the other elements are not effected. However, when we try to add or remove something from anywhere else it means that all the elements that come after now have to be reindexed to match the changes. `shift()` and `unshift()` are the biggest culprit for this because **all** the elements of the array now have to be changed. In a small dataset, this is negligible. But as our array grows in size, so does the time it takes to do all this work to change the indices of the array. If we are talking Big O notation, these methods (besides `push()` and `pop()`) will have O(n) performance.
 
-Contrast this with a linked list which has O(1) or constant time insertion and deletion. Why is this? As we will see with the code, when inserting or deleting a node in a linked list, we simply have to get to that node, and then shuffle some pointers around. If you want to see this in action [Visualgo](https://visualgo.net/en/list) has a great visualization tool that can help you see exactly how this works. Don't worry, we will see the code later.
+Contrast this with a linked list which has O(1) or constant time insertion and deletion. Why is this? As we will see with the code, when inserting or deleting a node in a linked list, we simply have to get to that node, and then shuffle some pointers around. This is the massive benefit that linked lists have over arrays. If we are working with large datasets and are constantly needing to add to the middle or beginning of our list, a linked list will be much more forgiving from a performance stand point. If you want to see this in action [Visualgo](https://visualgo.net/en/list) has a great visualization tool that can help you see exactly how this works. Don't worry, we will see the code later.
+
+As we can see, linked lists and arrays are actually quite different when we look under the hood. Arrays are great for static data that doesn't require a lot of change, and if we need the ability to randomly access the data, an array is a great choice. Linked lists are great for dynamic data that changes a lot over time. This is because of its constant time insertion and deletion versus arrays linear time insertion and deletion.
 
 ## Lets Make a Singly Linked List!
 
@@ -241,7 +243,7 @@ On arrays we have `splice()` which can delete and insert items! This is pretty c
 
 ![insert into linked list diagram](https://github.com/rancewcampbell/blog_posts/blob/master/02_resources/images/insert.png)
 
-In order to insert into our list we need to set the pointer of the previous node to our new node and then have our new node point to node that used to live where we are inserting. We will make use of the methods we defined earlier to help us implement inserting and deleting. Our `insert()` method will take and index and the data we want to store at that index. It could look something like this:
+In order to insert into our list we need to set the pointer of the previous node to our new node and then have our new node point to the node that used to live where we are inserting. We will make use of the methods we defined earlier to help us implement inserting and deleting. Our `insert()` method will take an index and the data we want to store at that index. It could look something like this:
 
 ```js
 class SinglyLinkedList {
@@ -328,7 +330,16 @@ list.remove(2); // this will return our second node object
 
 ## Conclusion
 
-Hopefully this has been a good introduction to linked lists and some of the basic implementations of them in JavaScript! As we can see linked lists are a great data structure to be familiar with. They are especially great for inserting and deleting elements. The complete code for this article can be found at [here](https://github.com/rancewcampbell/blog_posts/tree/master/02_resources). Thanks for reading and see you next time!
+Let's look at the steps we took to build our list:
+
+1. We built our node
+1. We built our basic linked list
+1. We added our `push` and `pop` methods
+1. We added our `shift` and `unshift` methods
+1. We created a method to look up a node by index
+1. We added our `insert` and `remove` methods
+
+Hopefully this has been a good introduction to linked lists and some of the basic implementations of them in JavaScript! As we can see linked lists are a great data structure to be familiar with. They are especially great for inserting and deleting elements. As a bonus challenge try implementing a `reverse()` method on our list! The complete code for this article can be found at [here](https://github.com/rancewcampbell/blog_posts/tree/master/02_resources). Thanks for reading and see you next time!
 
 ## Resources:
 
